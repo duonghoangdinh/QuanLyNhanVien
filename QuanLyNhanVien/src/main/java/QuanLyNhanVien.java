@@ -12,6 +12,7 @@ public class QuanLyNhanVien {
         //hello
         //hi
         //cc
+        // nghi hay ia
         
     }
 }
