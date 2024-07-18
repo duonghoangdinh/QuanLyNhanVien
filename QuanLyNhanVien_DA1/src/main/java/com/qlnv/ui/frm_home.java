@@ -45,8 +45,14 @@ public class frm_home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTabbedPane1.setBackground(new java.awt.Color(204, 204, 204));
+
+        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+
+        jToolBar2.setBackground(new java.awt.Color(153, 255, 255));
         jToolBar2.setRollover(true);
 
+        jButton5.setBackground(new java.awt.Color(244, 240, 240));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Bộ_Icon/Bộ_Icon/employee.png"))); // NOI18N
         jButton5.setText("QL PHÒNG BAN");
         jButton5.setFocusable(false);
@@ -59,6 +65,7 @@ public class frm_home extends javax.swing.JFrame {
         });
         jToolBar2.add(jButton5);
 
+        jButton6.setBackground(new java.awt.Color(244, 240, 240));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Bộ_Icon/Bộ_Icon/Notes.png"))); // NOI18N
         jButton6.setText("KENTHUONG-KYLUAT");
         jButton6.setFocusable(false);
@@ -66,6 +73,7 @@ public class frm_home extends javax.swing.JFrame {
         jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar2.add(jButton6);
 
+        jButton7.setBackground(new java.awt.Color(244, 240, 240));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Bộ_Icon/Bộ_Icon/pay.png"))); // NOI18N
         jButton7.setText("LUONG CA NHAN");
         jButton7.setFocusable(false);
@@ -88,8 +96,12 @@ public class frm_home extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Admin", jPanel2);
 
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+
+        jToolBar1.setBackground(new java.awt.Color(153, 255, 255));
         jToolBar1.setRollover(true);
 
+        jButton2.setBackground(new java.awt.Color(244, 240, 240));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Bộ_Icon/Bộ_Icon/employee.png"))); // NOI18N
         jButton2.setText("QL PHÒNG BAN");
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -101,12 +113,14 @@ public class frm_home extends javax.swing.JFrame {
         });
         jToolBar1.add(jButton2);
 
+        jButton3.setBackground(new java.awt.Color(244, 240, 240));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Bộ_Icon/Bộ_Icon/Notes.png"))); // NOI18N
         jButton3.setText("KENTHUONG-KYLUAT");
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton3);
 
+        jButton4.setBackground(new java.awt.Color(244, 240, 240));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Bộ_Icon/Bộ_Icon/pay.png"))); // NOI18N
         jButton4.setText("LUONG CA NHAN");
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -156,8 +170,9 @@ public class frm_home extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
