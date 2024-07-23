@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 import com.qlnv.entity.QLChucVu;
 import com.qlnv.entity.mainQuanLyNhanVien;
 
-
+//sua lai
 /**
  *
  * @author ASUS
