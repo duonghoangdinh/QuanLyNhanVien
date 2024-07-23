@@ -6,7 +6,7 @@ package com.qlnv.ui;
 
 /**
  *
- * @author ASUS
+ * @author a
  */
 public class frm_KhenThuong_KyLuat extends javax.swing.JFrame {
 
