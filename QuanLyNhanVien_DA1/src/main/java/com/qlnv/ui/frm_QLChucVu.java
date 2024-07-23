@@ -6,6 +6,15 @@ package com.qlnv.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,12 +25,42 @@ public class frm_QLChucVu extends javax.swing.JFrame implements ActionListener{
     /**
      * Creates new form frm_QLChucVu
      */
+    
+    private ArrayList<QLChucVu> qlcv = new ArrayList<>();
+    private int index = -1;
     public frm_QLChucVu() {
         initComponents();
         this.btnSua.addActionListener(this);
         this.btnThem.addActionListener(this);
         this.btnTimKiem.addActionListener(this);
         this.btnXoa.addActionListener(this);
+    }
+    public void upDatetable() {
+        String[] headers = new String[]{"Mã NV", "Tên CV"};
+        DefaultTableModel model = new DefaultTableModel(headers, 0);
+        for (QLChucVu ql : this.qlcv) {
+            model.addRow(ql.toObjectArray());
+        }
+    }
+
+    public void getData() {
+        try {
+            String select = "SELECT * FROM CHUCVU";
+            Connection connect = mainQuanLyNhanVien.connectDatabase();
+            Statement statement = connect.createStatement();
+            ResultSet resul = statement.executeQuery(select);
+            this.qlcv.clear();
+            while (resul.next()) {
+                QLChucVu ql = new QLChucVu();
+                ql.setMaNV(resul.getString("MaNV"));
+                ql.setTenCV(resul.getString("Ten"));
+                this.qlcv.add(ql);
+            }
+            this.upDatetable();
+            connect.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     /**
@@ -69,6 +108,11 @@ public class frm_QLChucVu extends javax.swing.JFrame implements ActionListener{
         jScrollPane1.setViewportView(tblQLCV);
 
         btnThem.setText("Thêm");
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
 
         btnSua.setText("Sửa");
 
@@ -79,6 +123,13 @@ public class frm_QLChucVu extends javax.swing.JFrame implements ActionListener{
         jLabel3.setText("Tên nhân viên");
 
         jLabel4.setText("Chức vụ");
+
+        edtTen.setEditable(false);
+        edtTen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edtTenActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,6 +201,18 @@ public class frm_QLChucVu extends javax.swing.JFrame implements ActionListener{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        try {
+            them();
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_QLChucVu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnThemActionPerformed
+
+    private void edtTenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtTenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edtTenActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -207,5 +270,23 @@ public class frm_QLChucVu extends javax.swing.JFrame implements ActionListener{
         if(e.getSource().equals(this.btnThem)){
             
         }
+    }
+    void them() throws SQLException{
+        String ma = this.edtMa.getText();
+        String cv = this.edtChucVu.getText();
+        String insert = String.format("INSERT INTO CHUCVU VALUES(N'%s','%s')",
+                            ma,
+                            cv);
+        Connection cn = mainQuanLyNhanVien.connectDatabase();
+        Statement sta = cn.createStatement();
+        int status = sta.executeUpdate(insert);
+        
+        if(status>0){
+            JOptionPane.showConfirmDialog(this, "them thanh cong");
+        } else {
+            JOptionPane.showConfirmDialog(this, "them that bai");
+        }
+        cn.close();
+        this.getData();
     }
 }
