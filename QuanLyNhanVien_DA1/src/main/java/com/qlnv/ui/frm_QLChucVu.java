@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import com.qlnv.entity.QLChucVu;
+import com.qlnv.entity.mainQuanLyNhanVien;
 
 
 /**
