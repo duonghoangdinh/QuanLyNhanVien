@@ -4,6 +4,8 @@
  */
 package com.qlnv.ui;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ASUS
@@ -29,8 +31,8 @@ public class frm_DangNhap extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtTaiKhoan = new javax.swing.JTextField();
+        txtMatKhau = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -50,10 +52,15 @@ public class frm_DangNhap extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("MATKHAU");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 259, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 260, -1));
+        getContentPane().add(txtTaiKhoan, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 259, -1));
+        getContentPane().add(txtMatKhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 260, -1));
 
         jButton1.setText("Đăng Nhập");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, -1, 30));
 
         jButton2.setText("Thoát");
@@ -78,6 +85,26 @@ public class frm_DangNhap extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String taikhoan=txtTaiKhoan.getText();
+        String matkhau=txtMatKhau.getText();
+        if(taikhoan.isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập tài khoản","Thong bao", 2);
+        }else if(matkhau.isBlank())
+        {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập mật khẩu","Thong bao", 2);
+        }
+        else if(taikhoan.equalsIgnoreCase("fpt")&&matkhau.equals("123")){
+            JOptionPane.showMessageDialog(this, "Bạn đã đăng nhập thành công !! ");
+            frm_home h = new frm_home();
+            h.show();
+            hide();
+        }else{
+            JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng","Thong bao", 0);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -125,7 +152,7 @@ public class frm_DangNhap extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtMatKhau;
+    private javax.swing.JTextField txtTaiKhoan;
     // End of variables declaration//GEN-END:variables
 }
