@@ -44,8 +44,12 @@ public class frm_KhenThuong_KyLuat extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+<<<<<<< HEAD
+        jScrollPane2 = new javax.swing.JScrollPane();
+=======
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+>>>>>>> edcac9f0c0213398cddf5da88448ccf4ed892315
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 204, 255));
@@ -138,6 +142,7 @@ public class frm_KhenThuong_KyLuat extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 780));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 233, 383, 304));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -191,6 +196,7 @@ public class frm_KhenThuong_KyLuat extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
