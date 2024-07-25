@@ -1,4 +1,4 @@
-package Class_DAO;
+package com.qlnv.dao;
 
 
 import java.sql.Connection;
